@@ -1,0 +1,35 @@
+﻿
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+        <OutputType>Exe</OutputType>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- Azure Functions Isolated Worker (latest stable) -->
+        <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.51.0" />
+        <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.7" OutputItemType="Analyzer" />
+
+        <!-- Correct Http extension (NOT the AspNetCore version) -->
+        <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.12" />
+
+        <!-- OpenTelemetry Core SDK (provides Trace, Metrics, Logs) -->
+        <PackageReference Include="OpenTelemetry" Version="1.15.1" />
+
+        <!-- Host integration -->
+        <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.15.1" />
+
+        <!-- Instrumentation libraries -->
+        <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.15.0" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.15.0" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.15.0" />
+        
+        <!-- OTLP Exporter (for SigNoz) -->
+        <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.15.1" />
+    </ItemGroup>
+
+</Project>
